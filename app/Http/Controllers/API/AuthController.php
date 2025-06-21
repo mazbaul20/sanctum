@@ -68,6 +68,15 @@ class AuthController extends Controller
             'message' => 'Authentication Failed.',
             'data' => null,
         ]);
+    }//End
+
+    public function Logout(Request $request)
+    {
+        Auth::user()->currentAccessToken()->delete();
+        return response()->json([
+            'status' => 1,
+            'message' => 'User logged out successfully.',
+        ]);
     }//End Method
 
 }
